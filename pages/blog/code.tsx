@@ -1,6 +1,6 @@
 import Container from '@/components/Container';
 import LatestPosts from '@/components/LatestPosts';
-import axios from '@/lib/axiosConfig';
+import axios, { baseURL } from '@/lib/axiosConfig';
 import Link from 'next/link';
 
 
@@ -36,7 +36,9 @@ export default function Code({ posts }:any) {
 }
 
 export async function getStaticProps() {
-  let res = await axios.get('/posts?category=code');
+  // let res = await axios.get('/posts?category=code');
+  const resp = await fetch(`${baseURL}/posts?category=code'`)
+  let res = await resp.json()
 
   let { data } = res.data;
 

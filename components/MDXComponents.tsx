@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import ImageWithTheme from 'components/ImageWithTheme';
+import ImageWithTheme from '@/components/ImageWithTheme';
 import Image from 'next/image';
 
-const NextImage = (props) => {
+const NextImage = (props: any) => {
   return (
     <Image
       width={672}
@@ -14,7 +14,7 @@ const NextImage = (props) => {
   );
 };
 
-const CustomLink = (props) => {
+const CustomLink = (props: any) => {
   const href = props.href;
   const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'));
 
@@ -29,7 +29,7 @@ const CustomLink = (props) => {
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 };
 
-const WatchOnYouTube = (props) => {
+const WatchOnYouTube = (props: any) => {
   return (
     <div className="youtube flex items-center gap-2">
       <Image

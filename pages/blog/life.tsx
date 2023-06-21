@@ -1,9 +1,8 @@
 import Container from '@/components/Container';
 import LatestPosts from '@/components/LatestPosts';
-import axios from '@/lib/axiosConfig';
+import axios, { baseURL } from '@/lib/axiosConfig';
 
-
-export default function Misc({ posts }:any) {
+export default function Misc({ posts }: any) {
   return (
     <Container
       title="Blog/Life – Girish Chaudhari"
@@ -26,7 +25,9 @@ export default function Misc({ posts }:any) {
 }
 
 export async function getStaticProps() {
-  let res = await axios.get('/posts?category=life');
+  // let res = await axios.get('/posts?category=life');
+  const resp = await fetch(`${baseURL}/posts?category=life'`);
+  let res = await resp.json();
 
   let { data } = res.data;
 
@@ -36,18 +37,20 @@ export async function getStaticProps() {
     return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
   });
 
-  arrayForSort.map((obj: { createdAt: string | number | Date; createdDate: string; }) => {
-    const options: any = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    };
-    const createdAt = new Date(obj.createdAt).toLocaleDateString([], options);
+  arrayForSort.map(
+    (obj: { createdAt: string | number | Date; createdDate: string }) => {
+      const options: any = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+      const createdAt = new Date(obj.createdAt).toLocaleDateString([], options);
 
-    obj.createdDate = createdAt;
+      obj.createdDate = createdAt;
 
-    return obj;
-  });
+      return obj;
+    }
+  );
 
   console.log('arryafor sort =>', arrayForSort);
 

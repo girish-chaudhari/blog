@@ -3,7 +3,7 @@ import BlogLayout from '@/layouts/blog';
 import components from '@/components/MDXComponents';
 import { mdxToHtml } from '@/lib/mdx';
 import { Post } from '@/lib/types';
-import axios from '@/lib/axiosConfig';
+import axios, { baseURL } from '@/lib/axiosConfig';
 
 
 export default function PostPage({ post }: { post: Post }) {
@@ -36,8 +36,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview = false }: any) {
   console.log('slugs data =>', params)
-  // if(!params.slug) 
-  let res = await axios.get(`/post?slug=${params.slug}`);
+  // let res = await axios.get(`/post?slug=${params.slug}`);
+  const resp = await fetch(`${baseURL}/post?slug=${params.slug}`)
+  let res = await resp.json()
+
   console.log('res >>', res.data.data.content);
   let { data } = res.data;
   const { html, readingTime } = await mdxToHtml(data.content);
