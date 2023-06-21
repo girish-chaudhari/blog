@@ -29,48 +29,63 @@ export async function getStaticPaths() {
       Accept: 'application/json'
     }
   });
-  let res = await resp.json();
+  if (resp.ok) {
+    let res = await resp.json();
 
-  let { data } = res;
-  let paths = data.map((obj: any) => {
-    return { params: obj };
-  });
-  console.log('slugs >>', paths);
-  return {
-    paths,
-    fallback: false
-  };
+    let { data } = res;
+    let paths = data.map((obj: any) => {
+      return { params: obj };
+    });
+    console.log('slugs >>', paths);
+    return {
+      paths,
+      fallback: false
+    };
+  } else {
+    return {
+      paths: [{ params: { slug: '' } }],
+      fallback: false
+    };
+  }
 }
 
 export async function getStaticProps({ params, preview = false }: any) {
   console.log('slugs data =>', params);
   // let res = await axios.get(`/post?slug=${params.slug}`);
   const resp = await fetch(`${baseURL}/post?slug=${params.slug}`);
-  let res = await resp.json();
+  if (resp.ok) {
+    let res = await resp.json();
 
-  console.log('res >>', res.data.content);
-  let { data } = res;
-  const { html, readingTime } = await mdxToHtml(data.content);
+    console.log('res >>', res.data.content);
+    let { data } = res;
+    const { html, readingTime } = await mdxToHtml(data.content);
 
-  const options: any = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  };
-  let date = new Date(data.createdAt).toLocaleDateString([], options);
+    const options: any = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    };
+    let date = new Date(data.createdAt).toLocaleDateString([], options);
 
-  return {
-    props: {
-      post: {
-        heading: data.heading,
-        content: html,
-        description: data.description,
-        date: date,
-        socialImage: data.slug,
-        tags: data.tags,
-        readingTime: readingTime,
-        tag: data.tags
+    return {
+      props: {
+        post: {
+          heading: data.heading,
+          content: html,
+          description: data.description,
+          date: date,
+          socialImage: data.slug,
+          tags: data.tags,
+          readingTime: readingTime,
+          tag: data.tags
+        }
       }
-    }
-  };
+    };
+  } else {
+    return {
+      props: {
+        post: {}
+      }
+    };
+  }
 }
