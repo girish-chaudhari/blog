@@ -48,8 +48,8 @@ export async function getStaticProps({ params, preview = false }: any) {
   const resp = await fetch(`${baseURL}/post?slug=${params.slug}`);
   let res = await resp.json();
 
-  console.log('res >>', res.data.data.content);
-  let { data } = res.data;
+  console.log('res >>', res.data.content);
+  let { data } = res;
   const { html, readingTime } = await mdxToHtml(data.content);
 
   const options: any = {
