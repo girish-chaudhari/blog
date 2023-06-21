@@ -27,7 +27,7 @@ export async function getStaticProps() {
   const resp = await fetch(`${baseURL}/posts?category=misc`);
   let res = await resp.json();
 
-  let { data } = res.data;
+  let { data } = res;
 
   console.log('data', data);
 

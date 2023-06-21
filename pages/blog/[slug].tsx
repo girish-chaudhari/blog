@@ -31,7 +31,7 @@ export async function getStaticPaths() {
   });
   let res = await resp.json();
 
-  let { data } = res.data;
+  let { data } = res;
   let paths = data.map((obj: any) => {
     return { params: obj };
   });

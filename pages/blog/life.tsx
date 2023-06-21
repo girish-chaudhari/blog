@@ -34,7 +34,7 @@ export async function getStaticProps() {
   });
   let res = await resp.json();
 
-  let { data } = res.data;
+  let { data } = res;
 
   console.log('data', data);
 
