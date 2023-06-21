@@ -1,16 +1,14 @@
-import { ApolloClient, InMemoryCache } from '@apollo/client';
-import { GET_ALL_SLUGS } from 'graphql/queries';
-import axios from 'lib/axiosConfig';
+import axios from '@/lib/axiosConfig';
 
 // const client = new ApolloClient({
 //   uri: process.env.CMS_HOST,
 //   cache: new InMemoryCache()
 // });
 
-const createSitemap = (slugs) => `<?xml version="1.0" encoding="UTF-8"?>
+const createSitemap = (slugs: any[]) => `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
         ${slugs
-          .map((slug) => {
+          .map((slug: any) => {
             return `
                 <url>
                     <loc>${`https://localhost/${slug}`}</loc>
@@ -20,7 +18,7 @@ const createSitemap = (slugs) => `<?xml version="1.0" encoding="UTF-8"?>
           .join('')}
     </urlset>
 `;
-export async function getServerSideProps({ res }) {
+export async function getServerSideProps({ res }: any) {
   // const { data } = await client.query({ query: GET_ALL_SLUGS });
   let resp = await axios.get('/category/slugs');
   let { data } = resp.data;
