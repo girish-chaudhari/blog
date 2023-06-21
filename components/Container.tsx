@@ -5,8 +5,9 @@ import { useTheme } from 'next-themes';
 import NextLink from 'next/link';
 import cn from 'classnames';
 
-import Footer from 'components/Footer';
-import MobileMenu from 'components/MobileMenu';
+import MobileMenu from './MobileMenu';
+import Footer from './Footer';
+
 
 function NavItem({ href, text, isGame }) {
   const router = useRouter();
