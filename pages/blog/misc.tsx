@@ -1,6 +1,6 @@
 import Container from '@/components/Container';
 import LatestPosts from '@/components/LatestPosts';
-import axios, { baseURL } from '@/lib/axiosConfig';
+import { baseURL } from '@/lib/axiosConfig';
 
 export default function Misc({ posts }: any) {
   return (

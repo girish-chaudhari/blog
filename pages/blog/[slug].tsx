@@ -1,9 +1,9 @@
-import { MDXRemote } from 'next-mdx-remote';
-import BlogLayout from '@/layouts/blog';
 import components from '@/components/MDXComponents';
+import BlogLayout from '@/layouts/blog';
+import { baseURL } from '@/lib/axiosConfig';
 import { mdxToHtml } from '@/lib/mdx';
 import { Post } from '@/lib/types';
-import axios, { baseURL } from '@/lib/axiosConfig';
+import { MDXRemote } from 'next-mdx-remote';
 
 
 export default function PostPage({ post }: { post: Post }) {
@@ -22,8 +22,12 @@ export default function PostPage({ post }: { post: Post }) {
 }
 
 export async function getStaticPaths() {
-  let resp = await axios.get('/post/slugs');
-  let { data } = resp.data;
+  // let resp = await axios.get('/post/slugs');
+
+  const resp = await fetch(`${baseURL}/posts/slugs'`)
+  let res = await resp.json()
+
+  let { data } = res.data;
   let paths = data.map((obj: any) => {
     return { params: obj };
   });
