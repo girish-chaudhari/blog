@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Container from '@/components/Container';
 
 export default function About() {
-  console.log('env', process.env.NODE_ENV)
   return (
     <Container title="About – Girish Chaudhari">
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
