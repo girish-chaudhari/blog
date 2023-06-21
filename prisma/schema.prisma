@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String @id @default(auto()) @map("_id") @db.ObjectId
+  /// Field referred in an index, but found no data to define the type.
+  providerAccountId Json?
+  /// Field referred in an index, but found no data to define the type.
+  providerId        Json?
+
+  @@unique([providerId, providerAccountId])
+}
+
+model Post {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  author      User?    @relation(fields: [authorId], references: [id])
+  authorId    String   @db.ObjectId
+  content     String
+  category    Category @default(code)
+  published   Boolean  @default(true)
+  imageUrl    String
+  title       String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  slug        String   @unique
+  description String
+  heading     String   @unique
+  tags        String[]
+}
+
+enum Category {
+  code
+  life
+  misc
+}
+
+model Session {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  /// Field referred in an index, but found no data to define the type.
+  accessToken  Json?  @unique
+  /// Field referred in an index, but found no data to define the type.
+  sessionToken Json?  @unique
+}
+
+model User {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  access_token  String?
+  email         String   @unique
+  expires_at    BigInt?
+  name          String
+  password      String
+  refresh_token String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  Post          Post[]
+}
+
+model VerificationToken {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  /// Field referred in an index, but found no data to define the type.
+  identifier Json?
+  /// Field referred in an index, but found no data to define the type.
+  token      Json?  @unique
+
+  @@unique([identifier, token])
+}
