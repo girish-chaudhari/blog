@@ -53,7 +53,7 @@ export default function MobileMenu() {
             className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
             style={{ transitionDelay: '150ms' }}
           >
-            <Link href="/">
+            <Link href="/" legacyBehavior>
               <a className="flex w-auto pb-4">Home</a>
             </Link>
           </li>
@@ -61,7 +61,7 @@ export default function MobileMenu() {
             className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
             style={{ transitionDelay: '150ms' }}
           >
-            <Link href="/about">
+            <Link href="/about" legacyBehavior>
               <a className="flex w-auto pb-4">About</a>
             </Link>
           </li>
@@ -69,7 +69,7 @@ export default function MobileMenu() {
             className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
             style={{ transitionDelay: '250ms' }}
           >
-            <Link href="/blog">
+            <Link href="/blog" legacyBehavior>
               <a className="flex w-auto pb-4">Blog</a>
             </Link>
           </li>
@@ -77,7 +77,7 @@ export default function MobileMenu() {
             className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
             style={{ transitionDelay: '250ms' }}
           >
-            <Link href="https://games.ryancarmody.dev">
+            <Link href="https://games.ryancarmody.dev" legacyBehavior>
               <a className="flex w-auto pb-4">Games</a>
             </Link>
           </li>

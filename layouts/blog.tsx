@@ -26,7 +26,7 @@ export default function BlogLayout({
         <div className="mb-4">
           {post.tags.map((oneTag:string, i:number) => {
             return (
-              <Link href={`/category/${oneTag}`} key={i}>
+              <Link href={`/category/${oneTag}`} key={i} legacyBehavior>
                 <a className="text-lg mr-2 bg-gray-200 dark:bg-gray-600 p-px pr-1 pl-1 rounded-sm">
                   #{oneTag}
                 </a>

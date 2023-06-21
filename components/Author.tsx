@@ -13,7 +13,7 @@ export default function Author({ readingTime, date }) {
   return (
     <div className="flex justify-between w-full mb-12">
       <div>
-        <Link href="/about">
+        <Link href="/about" legacyBehavior>
           <a className="flex gap-4 items-center">
             <div className="relative w-12 h-12">
               <Image
@@ -33,7 +33,7 @@ export default function Author({ readingTime, date }) {
         </Link>
       </div>
       <div className="flex justify-center items-center">
-        <Link href="https://www.linkedin.com/in/ryanjcarmody/">
+        <Link href="https://www.linkedin.com/in/ryanjcarmody/" legacyBehavior>
           <a target="_blank" aria-label="Link to LinkedIn page">
             <div className="w-12 h-12 flex items-center justify-center">
               <svg
@@ -48,7 +48,7 @@ export default function Author({ readingTime, date }) {
             </div>
           </a>
         </Link>
-        <Link href="https://twitter.com/ryancarmody_dev">
+        <Link href="https://twitter.com/ryancarmody_dev" legacyBehavior>
           <a
             target="_blank"
             className="hidden sm:block"
@@ -67,7 +67,7 @@ export default function Author({ readingTime, date }) {
             </div>
           </a>
         </Link>
-        <Link href="https://github.com/rjc23">
+        <Link href="https://github.com/rjc23" legacyBehavior>
           <a target="_blank" aria-label="Link to GitHub page">
             <div className="w-12 h-12 flex items-center justify-center">
               <svg

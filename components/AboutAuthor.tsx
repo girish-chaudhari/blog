@@ -34,7 +34,7 @@ export default function Author() {
         <p>
           I'm a web developer and computer science tutor. I also rock climb,
           play{' '}
-          <Link href="/blog/my-experience-playing-wheelchair-basketball">
+          <Link href="/blog/my-experience-playing-wheelchair-basketball" legacyBehavior>
             <a>wheelchair basketball</a>
           </Link>{' '}
           and brew beer.

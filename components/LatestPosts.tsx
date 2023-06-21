@@ -12,7 +12,7 @@ export default function LatestPosts({ posts =[]}) {
             className="bg-white shadow-md rounded-lg dark:bg-gray-800"
             key={i}
           >
-            <Link href={'/blog/' +post.slug}>
+            <Link href={'/blog/' +post.slug} legacyBehavior>
               <a>
                 <div className="mb-2">
                   <Image
@@ -20,7 +20,7 @@ export default function LatestPosts({ posts =[]}) {
                     width={672}
                     height={400}
                     alt={post.title}
-                    className="image rounded-tl-lg rounded-tr-lg"
+                    className="image rounded-tl-lg rounded-tr-l"
                     quality={1}
                     priority
                   ></Image>
@@ -28,7 +28,7 @@ export default function LatestPosts({ posts =[]}) {
               </a>
             </Link>
             <div className="p-4 pb-8">
-              <Link href={'/blog/' + 'next.js'}>
+              <Link href={'/blog/' + 'next.js'} legacyBehavior>
                 <a>
                   <div className="text-sm text-green-700 dark:text-green-300">
                     {readingTime('3').text} - {post.createdDate}
@@ -39,7 +39,7 @@ export default function LatestPosts({ posts =[]}) {
               <div>
                 {post.tags.map((tag:string, i) => {
                   return (
-                    <Link href={`/category/${tag}`} key={i}>
+                    <Link href={`/category/${tag}`} key={i} legacyBehavior>
                       <a className="mr-2 bg-gray-200 dark:bg-gray-600 p-px pr-1 pl-1 rounded-sm">
                         #{tag}
                       </a>

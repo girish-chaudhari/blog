@@ -22,7 +22,7 @@ export default function Code({ posts }: any) {
           </p>
           <p>
             You can search{' '}
-            <Link href={'/category'}>
+            <Link href={'/category'} legacyBehavior>
               <a>by category. </a>
             </Link>
           </p>
