@@ -24,7 +24,7 @@ export default function Misc({ posts }: any) {
 
 export async function getStaticProps() {
   // let res = await axios.get('/posts?category=misc');
-  const resp = await fetch(`${baseURL}/posts?category=misc'`);
+  const resp = await fetch(`${baseURL}/posts?category=misc`);
   let res = await resp.json();
 
   let { data } = res.data;

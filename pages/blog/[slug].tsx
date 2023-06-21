@@ -5,7 +5,6 @@ import { mdxToHtml } from '@/lib/mdx';
 import { Post } from '@/lib/types';
 import { MDXRemote } from 'next-mdx-remote';
 
-
 export default function PostPage({ post }: { post: Post }) {
   return (
     <BlogLayout post={post}>
@@ -24,14 +23,19 @@ export default function PostPage({ post }: { post: Post }) {
 export async function getStaticPaths() {
   // let resp = await axios.get('/post/slugs');
 
-  const resp = await fetch(`${baseURL}/posts/slugs'`)
-  let res = await resp.json()
+  const resp = await fetch(`${baseURL}/posts/slugs`, {
+    method: `GET`,
+    headers: {
+      Accept: 'application/json'
+    }
+  });
+  let res = await resp.json();
 
   let { data } = res.data;
   let paths = data.map((obj: any) => {
     return { params: obj };
   });
-  console.log("slugs >>", paths)
+  console.log('slugs >>', paths);
   return {
     paths,
     fallback: false
@@ -39,10 +43,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview = false }: any) {
-  console.log('slugs data =>', params)
+  console.log('slugs data =>', params);
   // let res = await axios.get(`/post?slug=${params.slug}`);
-  const resp = await fetch(`${baseURL}/post?slug=${params.slug}`)
-  let res = await resp.json()
+  const resp = await fetch(`${baseURL}/post?slug=${params.slug}`);
+  let res = await resp.json();
 
   console.log('res >>', res.data.data.content);
   let { data } = res.data;

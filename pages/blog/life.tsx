@@ -26,7 +26,12 @@ export default function Misc({ posts }: any) {
 
 export async function getStaticProps() {
   // let res = await axios.get('/posts?category=life');
-  const resp = await fetch(`${baseURL}/posts?category=life'`);
+  const resp = await fetch(`${baseURL}/posts?category=life`, {
+    method: `GET`,
+    headers: {
+      Accept: 'application/json'
+    }
+  });
   let res = await resp.json();
 
   let { data } = res.data;
