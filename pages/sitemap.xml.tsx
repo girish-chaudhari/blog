@@ -22,7 +22,12 @@ export async function getServerSideProps({ res }: any) {
 
 
   const allPages = [
-  
+    ...data.slugs.map(
+      (slug: any) => `blog/${slug}`
+    ),
+    ...data.tags.map(
+      (slug: any) => `category/${slug}`
+    ),
     ...['', 'about', 'blog', 'blog/code', 'blog/life', 'blog/misc']
   ];
 

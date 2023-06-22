@@ -40,7 +40,7 @@ export async function getStaticPaths() {
 
   let { data } = res;
 
-  const paths = data.map((tag: string) => {
+  const paths = data.tags.map((tag: string) => {
     return { params: { slug: tag } };
   });
 
