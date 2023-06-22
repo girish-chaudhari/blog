@@ -11,7 +11,7 @@ const createSitemap = (slugs: any[]) => `<?xml version="1.0" encoding="UTF-8"?>
           .map((slug: any) => {
             return `
                 <url>
-                    <loc>${`https://localhost/${slug}`}</loc>
+                    <loc>${`https://dev-blog-girish-girishvisaero.vercel.app/${slug}`}</loc>
                 </url>
             `;
           })
