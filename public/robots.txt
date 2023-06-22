@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://ryancarmody.dev/sitemap.xml
+Sitemap: https://dev-blog-girish-girishvisaero.vercel.app/

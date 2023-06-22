@@ -42,7 +42,7 @@ export default function Container(props) {
     description: `Full stack web developer and computer science tutor. `,
     type: 'website',
     image:
-      'https://ryancarmody-blog.s3.amazonaws.com/large_home_9fd803899b.png',
+      'https://dev-blog-girish-girishvisaero.vercel.app//large_home_9fd803899b.png',
     tags: 'Next.js, blog, Girish Chaudhari',
     ...customMeta
   };
@@ -69,7 +69,7 @@ export default function Container(props) {
         <meta property="og:image" content={meta.image} />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@ryancarmody1" />
+        <meta name="twitter:site" content="@girish-chaudhari" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
@@ -88,7 +88,6 @@ export default function Container(props) {
             <NavItem href="/" text="Home" isGame={false} />
             <NavItem href="/about" text="About" isGame={false} />
             <NavItem href="/blog" text="Blog" isGame={false} />
-            {/* <NavItem href="https://games.ryancarmody.dev" text="Games" isGame={true} /> */}
           </div>
           <button
             aria-label="Toggle Dark Mode"

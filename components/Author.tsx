@@ -48,7 +48,7 @@ export default function Author({ readingTime, date }) {
             </div>
           </a>
         </Link>
-        <Link href="https://twitter.com/ryancarmody_dev" legacyBehavior>
+        <Link href="https://twitter.com/girish-chaudhari" legacyBehavior>
           <a
             target="_blank"
             className="hidden sm:block"
