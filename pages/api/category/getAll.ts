@@ -4,6 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 const getHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const categoryData = await prisma.tags.findMany();
+    
     console.log('categoryData ', categoryData);
 
     return res.status(200).json({
