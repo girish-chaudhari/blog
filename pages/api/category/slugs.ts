@@ -7,12 +7,15 @@ const getHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     //   select: { tags: true }
     // });
     const slugData = await prisma.post.findMany({
-      select: { tags: true }
+      select: { tags: true, slug: true }
     });
     console.log('slugData ', slugData);
     let arr: string[] = [];
+    let slugs: string[] = [];
+
     slugData.map((tagArr) => {
-      tagArr.tags.map((tag) => arr.push(tag));
+      slugs.push(tagArr.slug);
+      tagArr.tags.map((tag: string) => arr.push(tag));
     });
 
     // let data = Array.from([...new Set(arr)])
@@ -21,7 +24,7 @@ const getHandler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     return res.status(200).json({
       status: 'success',
-      data: arr
+      data: { tags: arr, slugs }
     });
   } catch (error) {
     res.status(500).json({ msg: 'Something went wrong!', status: 'error' });
