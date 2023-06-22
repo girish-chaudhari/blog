@@ -51,7 +51,7 @@ export async function getStaticProps() {
       'Content-Type': 'application/json'
     }
   });
-  // console.log('base url =>', `${baseURL}/posts/slugs`)
+  console.log('base url =>', resp.url)
   let res = await resp.json();
 
   console.log('res data =>', res);
