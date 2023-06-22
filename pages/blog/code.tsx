@@ -42,7 +42,11 @@ export async function getStaticProps() {
       Accept: 'application/json'
     }
   });
+
+  console.log('resp data =>', resp)
+  if(resp.status == 404) throw new Error('Something went wrong!')
   let res = await resp.json();
+  console.log('resp data =>', res)
 
   let { data } = res;
 
