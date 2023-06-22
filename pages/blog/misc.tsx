@@ -1,32 +1,20 @@
 import Container from '@/components/Container';
 import LatestPosts from '@/components/LatestPosts';
-import  { baseURL } from '@/lib/axiosConfig';
-import Link from 'next/link';
+import { baseURL } from '@/lib/axiosConfig';
 
-export default function Code({ posts }: any) {
+export default function Misc({ posts }: any) {
   return (
     <Container
-      title="Blog/Code – Girish Chaudhari"
-      description="Everything code in my life"
+      title="Blog/Misc – Girish Chaudhari"
+      description="Had a random thought, decided to write about it here."
     >
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
-          /blog/code
+          /blog/misc
         </h1>
-        <div className="mb-12">
-          <p className="mb-3">
-            Here you can find articles about everything web dev. I like to write
-            &apos;how to&apos;s&apos; about specific topics e.g. Angular 2+,
-            Next.js, Heroku etc, as well as broader topics about the life of a
-            web developer.
-          </p>
-          <p>
-            You can search{' '}
-            <Link href={'/category'} legacyBehavior>
-              <a>by category. </a>
-            </Link>
-          </p>
-        </div>
+        <p className="mb-12">
+          Had a random thought about something, wrote about it here.
+        </p>
         <h2 className="mb-4">Latest articles</h2>
         <LatestPosts posts={posts} />
       </div>
@@ -35,20 +23,13 @@ export default function Code({ posts }: any) {
 }
 
 export async function getStaticProps() {
-  // let res = await axios.get('/posts?category=code');
-  const resp = await fetch(`${baseURL}/posts?category=code`, {
-    method: `GET`,
-    headers: {
-      'content-type': 'application/json',
-      Accept: 'application/json'
-    }
-  });
-
+  // let res = await axios.get('/posts?category=misc');
+  const resp = await fetch(`${baseURL}/posts?category=misc`);
   let res = await resp.json();
-  console.log('resp data =>', res)
 
   let { data } = res;
 
+  console.log('data', data);
 
   let arrayForSort = data.sort(function (a: any, b: any) {
     return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
