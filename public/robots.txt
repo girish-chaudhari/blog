@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://dev-blog-girish-girishvisaero.vercel.app/
+Sitemap: https://blog-forum.vercel.app/sitemap.xml
