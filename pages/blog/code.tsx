@@ -39,12 +39,13 @@ export async function getStaticProps() {
   const resp = await fetch(`${baseURL}/posts?category=code`, {
     method: `GET`,
     headers: {
+      'content-type': 'application/json',
       Accept: 'application/json'
     }
   });
 
   console.log('resp data =>', resp)
-  if(resp.status == 404) throw new Error('Something went wrong!')
+  console.log('resp url =>', resp.url)
   let res = await resp.json();
   console.log('resp data =>', res)
 
