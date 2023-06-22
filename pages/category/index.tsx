@@ -2,7 +2,7 @@ import Container from '@/components/Container';
 import Link from 'next/link';
 import readingTime from 'reading-time';
 import Image from 'next/image';
-import axios from '@/lib/axiosConfig';
+import axios, { baseURL } from '@/lib/axiosConfig';
 
 export default function Code({ tags }) {
   return (
@@ -44,9 +44,18 @@ export default function Code({ tags }) {
 }
 
 export async function getStaticProps() {
-  let res = await axios.get('/category/getAll');
-  console.log('res data =>', res.data);
-  let { data } = res.data;
+  const resp = await fetch(`${baseURL}/category/getAll`, {
+    method: `GET`,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    }
+  });
+  // console.log('base url =>', `${baseURL}/posts/slugs`)
+  let res = await resp.json();
+
+  console.log('res data =>', res);
+  let { data } = res;
 
   return {
     props: {

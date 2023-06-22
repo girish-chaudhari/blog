@@ -1,6 +1,6 @@
 import Container from '@/components/Container';
 import LatestPosts from '@/components/LatestPosts';
-import axios from '@/lib/axiosConfig';
+import axios, { baseURL } from '@/lib/axiosConfig';
 
 
 
@@ -28,8 +28,17 @@ export default function Categories({ tag, posts }) {
 }
 
 export async function getStaticPaths() {
-  let res = await axios.get('/category/slugs');
-  let { data } = res.data;
+  const resp = await fetch(`${baseURL}/category/slugs`, {
+    method: `GET`,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    }
+  });
+  // console.log('base url =>', `${baseURL}/posts/slugs`)
+  let res = await resp.json();
+
+  let { data } = res;
 
   const paths = data.map((tag: string) => {
     return { params: { slug: tag } };
@@ -42,9 +51,19 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  let res = await axios.get(`/category?tag=${params.slug}`);
+//   let res = await axios.get(`/category?tag=${params.slug}`);
+const resp = await fetch(`${baseURL}/category?tag=${params.slug}`, {
+    method: `GET`,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    }
+  });
+  // console.log('base url =>', `${baseURL}/posts/slugs`)
+  let res = await resp.json();
 
-  let { data } = res.data;
+
+  let { data } = res;
 
   data.map((obj: any) => {
     const options: any = {
