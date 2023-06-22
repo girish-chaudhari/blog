@@ -31,7 +31,7 @@ export default function Home() {
                   <Link href="/blog/personal-projects">more projects.</Link>{" "}
               </p>
               <div>
-                <Link href="https://smugchicken.com" legacyBehavior>
+                <Link href="/" legacyBehavior>
                   <a target="_blank" aria-label="Link to Smug Chicken game">
                     <Image
                       alt="tech"

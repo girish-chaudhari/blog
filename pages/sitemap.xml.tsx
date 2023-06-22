@@ -1,9 +1,5 @@
 import axios from '@/lib/axiosConfig';
 
-// const client = new ApolloClient({
-//   uri: process.env.CMS_HOST,
-//   cache: new InMemoryCache()
-// });
 
 const createSitemap = (slugs: any[]) => `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -22,11 +18,15 @@ export async function getServerSideProps({ res }: any) {
   // const { data } = await client.query({ query: GET_ALL_SLUGS });
   let resp = await axios.get('/category/slugs');
   let { data } = resp.data;
+  console.log('data', data)
 
 
   const allPages = [
-    ...data.map(
+    ...data.slugs.map(
       (slug: any) => `blog/${slug}`
+    ),
+    ...data.tags.map(
+      (slug: any) => `category/${slug}`
     ),
     ...['', 'about', 'blog', 'blog/code', 'blog/life', 'blog/misc']
   ];
