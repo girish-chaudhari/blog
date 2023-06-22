@@ -33,7 +33,7 @@ export default function Footer() {
           <ExternalLink href="https://twitter.com/girish-chaudhari">
             Twitter
           </ExternalLink>
-          <ExternalLink href="https://www.linkedin.com/in/girish-chaudhari/">
+          <ExternalLink href="https://www.linkedin.com/in/girish-chaudhari-1595871aa">
             LinkedIn
           </ExternalLink>
           <ExternalLink href="https://github.com/girish-chaudhari">GitHub</ExternalLink>
