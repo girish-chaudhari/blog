@@ -36,10 +36,8 @@ export default function Footer() {
           <ExternalLink href="https://www.linkedin.com/in/ryanjcarmody/">
             LinkedIn
           </ExternalLink>
-          <ExternalLink href="https://github.com/rjc23">GitHub</ExternalLink>
-          <ExternalLink href="https://www.youtube.com/channel/UCGTXoUNS6EeBpW-wta7phqQ">
-            YouTube
-          </ExternalLink>
+          <ExternalLink href="https://github.com/girish-chaudhari">GitHub</ExternalLink>
+          
         </div>
         <div className="flex flex-col space-y-4">
           <Link href="/blog/code" legacyBehavior>

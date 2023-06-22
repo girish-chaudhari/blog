@@ -9,33 +9,42 @@ export default function About() {
           /about
         </h1>
         <p className="text-black dark:text-white mb-4">
-          My name is Girish Chaudhari and I am a web developer and computer science tutor from{' '}
+          My name is Girish Chaudhari and I am a Web developer{' '}
           <a
-            href="https://en.wikipedia.org/wiki/Adelaide"
+            href="https://en.wikipedia.org/wiki/Jalgaon_district"
             target="blank"
             rel="noopener noreferrer"
           >
-            Adelaide, South Australia
+            Jalgaon, Maharashtra, India
           </a>
           .
         </p>
         <p className="text-black dark:text-white mb-4">
-          I have a Bachelor of Computer Science from The University of Adelaide, and for about 2 years, I worked full-time for a local company as a web
-          developer, mainly using Angular 2+. I enjoyed working at this
-          company but was ready for something new.
+          I am a Software Developer at Visaero India, and since this is my
+          second job, I worked full-time for a local company as a web developer,
+          From Bachelor's Degree to Software Developer: My Journey and 1+ Year
+          Experience
         </p>
         <p className="text-black dark:text-white mb-6">
-          In early 2022, I left my job and took a job tutoring at my local
-          university. I can now say, I seriously LOVE tutoring. I really enjoy
-          building meaningful relationships with students and seeing them
-          develop their coding skills. Also, since I started tutoring, I have
-          started working on many more{' '}
+          Welcome to my blog, where I'll be sharing my personal journey from
+          completing my Bachelor's degree in Computer Applications to joining
+          the workforce as a software developer. Over the past year, I've gained
+          valuable experience in the industry, and I'm excited to share my
+          insights, challenges, and accomplishments with you. Also, since I
+          started making a blog, I have started working on many more{' '}
           <Link href="blog/personal-projects">personal coding projects.</Link>{' '}
-          This has enabled me to learn new skills, such as Next.js, Web
-          Scraping, Twitter API and much more.
+          This has enabled me to learn new skills, such as Next.js, reactjs,
+          prisma and much more.
         </p>
+        <h2>Reflections and Lessons Learned: </h2>
         <p className="text-black dark:text-white mb-6">
-          In February 2023, I sold my online game, <a href='https://wheretaken.teuteuf.fr'>WhereTaken</a> to MPL Enterprises and now work for them making enhancements to the game, as well as work on other gaming projects.
+          {/* <a href="https://wheretaken.teuteuf.fr">WhereTaken</a>  */}
+          In the final section, I'll reflect on my journey so far and share the
+          key lessons I've learned. I'll discuss the importance of perseverance,
+          adaptability, and a growth mindset in the software development
+          industry. Additionally, I'll provide insights into building a
+          successful career as a software developer, maintaining work-life
+          balance, and setting realistic goals for professional growth.
         </p>
         <h2 className="text-black dark:text-white mb-4">Get in contact</h2>
         <ul>
@@ -52,7 +61,7 @@ export default function About() {
           <li>
             {'>  '}
             <a
-              href="mailto:ryancarmody1@gmail.com"
+              href="mailto:girishvishnuc98@gmail.com"
               target="blank"
               rel="noopener noreferrer"
             >

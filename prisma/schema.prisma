@@ -34,6 +34,12 @@ model Post {
   tags        String[]
 }
 
+model Tags {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  tag    String @unique
+  tagUrl String
+}
+
 enum Category {
   code
   life

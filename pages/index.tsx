@@ -15,20 +15,20 @@ export default function Home() {
                 Girish Chaudhari
               </h1>
               <p className="text-gray-700 dark:text-gray-200 mb-4">
-                Web Developer and Computer Science Tutor
+                Web Developer 
               </p>
               <p className="text-gray-600 dark:text-gray-400 mb-16">
-                Currently working at The University of Adelaide, MPL Enteprises
-                (
-                <a href="https://worldle.teuteuf.fr" target="blank">
-                  Worldle
+                Currently working at Visaero India, Learning and exploring more technologies
+                like (
+                <a href="https://react.dev/" target="blank">
+                  React
                 </a>
-                ,{' '}
-                <a href="https://wheretaken.teuteuf.fr" target="blank">
-                  WhereTaken
-                </a>{' '}
-                etc) and chipping away at{' '}
-                <Link href="/blog/personal-projects">these projects.</Link>{' '}
+                ,{" "}
+                  <a href="https://nextjs.org/" target="blank">
+                    Next.js
+                  </a>{" "}
+                  etc) and working on{" "}
+                  <Link href="/blog/personal-projects">more projects.</Link>{" "}
               </p>
               <div>
                 <Link href="https://smugchicken.com" legacyBehavior>
@@ -36,7 +36,7 @@ export default function Home() {
                     <Image
                       alt="tech"
                       className="rounded-md"
-                      src="/smug.jpg"
+                      src="/mern_stack.png"
                       width={800}
                       height={300}
                     />
