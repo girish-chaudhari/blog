@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { PropsWithChildren } from 'react';
 import { Url } from 'url';
 
@@ -16,20 +17,26 @@ function PostImage({
   imgSrc
 }: PropsWithChildren<{ link: any; alt: string; imgSrc: string }>) {
   return (
-    <a href={link} rel="noopener noreferrer" target="_blank">
-      <Image
-        src={imgSrc}
-        width={400}
-        height={400}
-        alt={alt}
-        className="rounded-lg h-[150px] object-cover w-full"
-      ></Image>
-      {children}
-    </a>
+    <Link href={`/blog/${link}`} legacyBehavior>
+      <a>
+        <Image
+          src={imgSrc}
+          width={400}
+          height={400}
+          alt={alt}
+          className="rounded-lg h-[150px] object-cover w-full"
+        ></Image>
+        {children}
+      </a>
+    </Link>
   );
 }
 
-export default function RelativePosts({ relative = []}: {relative: Relative[]}) {
+export default function RelativePosts({
+  relative = []
+}: {
+  relative: Relative[];
+}) {
   return (
     <div className="mt-16 w-full">
       <h3>Check out some of relative posts</h3>
@@ -42,7 +49,7 @@ export default function RelativePosts({ relative = []}: {relative: Relative[]}) 
               imgSrc={post?.imageUrl}
             ></PostImage>
             <div>
-              <h4 className='truncate'>{post?.title}</h4>
+              <h4 className="truncate">{post?.title}</h4>
               <p>{post?.description}.</p>
             </div>
           </div>

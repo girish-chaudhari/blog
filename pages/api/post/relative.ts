@@ -2,11 +2,14 @@ import { prisma } from '@/lib/prisma';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 const postHandler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { tags } = req.body;
+  const { tags, currentPostId} = req.body;
   console.log('relative tags is =>', tags);
   try {
     const postData = await prisma.post.findMany({
       where: {
+        id:{
+          not: currentPostId
+        },
         tags: {
           hasSome: tags
         }

@@ -85,7 +85,8 @@ export async function getStaticProps({ params, preview = false }: any) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        tags: data?.tags || ''
+        tags: data?.tags || [],
+        currentPostId: data.id
       })
     });
 
