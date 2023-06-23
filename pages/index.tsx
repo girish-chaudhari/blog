@@ -4,6 +4,7 @@ import Container from '@/components/Container';
 import Link from 'next/link';
 
 export default function Home() {
+
   return (
     <Suspense fallback={null}>
       <Container>
@@ -52,6 +53,7 @@ export default function Home() {
               />
             </div>
           </div>
+          {/* <blockquote className="twitter-tweet" data-theme={resolvedTheme === 'dark'? 'dark': 'light'}><p lang="en" dir="ltr">JavaScript is an easy language to get started with, a hard language to master.</p>&mdash; Girish Chaudhari (@GirishC0007) <a href="https://twitter.com/GirishC0007/status/1672263025624240128?ref_src=twsrc%5Etfw">June 23, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> */}
           <span className="h-24" />
         </div>
       </Container>

@@ -4,11 +4,25 @@ import { baseURL } from '@/lib/axiosConfig';
 import { mdxToHtml } from '@/lib/mdx';
 import { Post } from '@/lib/types';
 import { MDXRemote } from 'next-mdx-remote';
+import { Url } from 'url';
 
-export default function PostPage({ post }: { post: Post }) {
+interface Relative {
+  title: string;
+  description: string;
+  slug: Url;
+  imageUrl: string;
+}
+
+export default function PostPage({
+  post,
+  relative
+}: {
+  post: Post;
+  relative: Relative[];
+}) {
   return (
     <>
-      <BlogLayout post={post}>
+      <BlogLayout post={post} relative={relative}>
         <MDXRemote
           {...post.content}
           components={
@@ -36,7 +50,7 @@ export async function getStaticPaths() {
   let res = await resp.json();
 
   let { data } = res;
-  console.log('data', data)
+  console.log('data', data);
   let paths = data.map((obj: any) => {
     return { params: obj };
   });
@@ -57,11 +71,29 @@ export async function getStaticProps({ params, preview = false }: any) {
       'Content-Type': 'application/json'
     }
   });
+
   if (resp.ok) {
     let res = await resp.json();
 
     console.log('res >>', res.data.content);
     let { data } = res;
+
+    const relativeResp = await fetch(`${baseURL}/post/relative`, {
+      method: `POST`,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        tags: data?.tags || ''
+      })
+    });
+
+    let relRes = await relativeResp.json();
+
+    let { data: relData } = relRes;
+
+    console.log('relativeResp', relRes);
     const { html, readingTime } = await mdxToHtml(data.content);
 
     const options: any = {
@@ -82,7 +114,8 @@ export async function getStaticProps({ params, preview = false }: any) {
           tags: data.tags,
           readingTime: readingTime,
           tag: data.tags
-        }
+        },
+        relative: relData
       }
     };
   } else {

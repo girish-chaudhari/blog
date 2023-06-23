@@ -51,7 +51,7 @@ export default function About() {
           <li>
             {'>  '}
             <a
-              href="https://www.linkedin.com/in/ryanjcarmody/"
+              href="https://www.linkedin.com/in/girish-chaudhari-1595871aa/"
               target="blank"
               rel="noopener noreferrer"
             >
