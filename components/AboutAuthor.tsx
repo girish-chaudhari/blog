@@ -21,23 +21,19 @@ export default function Author() {
           </p>
         </div>
         <p>
-          Hi, I'm Ryan from{' '}
+          Hi, I'm Girish from{' '}
           <a
-            href="https://en.wikipedia.org/wiki/Adelaide"
+            href="https://en.wikipedia.org/wiki/Jalgaon_district"
             target="blank"
             rel="noopener noreferrer"
           >
-            Adelaide, South Australia
+            Jalgaon, India
           </a>
           .
         </p>
         <p>
-          I'm a web developer and computer science tutor. I also rock climb,
-          play{' '}
-          <Link href="/blog/my-experience-playing-wheelchair-basketball" legacyBehavior>
-            <a>wheelchair basketball</a>
-          </Link>{' '}
-          and brew beer.
+          I'm a web developer and Software developer. I have been working on
+          more <Link href="/projects">interesting projects.</Link>{' '}
         </p>
       </div>
     </div>

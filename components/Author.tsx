@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Author({ readingTime, date }) {
-  const options: any = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  };
-  const createdAt = date
+interface AuthorProps {
+    readingTime: string;
+    date: string;
+}
+
+export default function Author({ readingTime, date }: AuthorProps) {
+  const createdAt = date;
   // new Date(date).toLocaleDateString([], options);
 
   return (
@@ -33,7 +33,10 @@ export default function Author({ readingTime, date }) {
         </Link>
       </div>
       <div className="flex justify-center items-center">
-        <Link href="https://www.linkedin.com/in/ryanjcarmody/" legacyBehavior>
+        <Link
+          href="https://www.linkedin.com/in/girish-chaudhari-1595871aa"
+          legacyBehavior
+        >
           <a target="_blank" aria-label="Link to LinkedIn page">
             <div className="w-12 h-12 flex items-center justify-center">
               <svg

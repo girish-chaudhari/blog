@@ -24,7 +24,7 @@ function Game({
 export default function PlayGames() {
   return (
     <div className="mt-16">
-      <h3>Check out some of the games I made</h3>
+      <h3>Check out some of relative posts</h3>
       <div className="flex gap-3 flex-col sm:flex-row sm:gap-12">
         <div className="mt-6 w-8/12 sm:w-3/12 ">
           <Game

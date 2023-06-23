@@ -15,33 +15,29 @@ export default function Home() {
                 Girish Chaudhari
               </h1>
               <p className="text-gray-700 dark:text-gray-200 mb-4">
-                Web Developer 
+                Web Developer
               </p>
               <p className="text-gray-600 dark:text-gray-400 mb-16">
-                Currently working at Visaero India, Learning and exploring more technologies
-                like (
+                Currently working at Visaero India, Learning and exploring more
+                technologies like (
                 <a href="https://react.dev/" target="blank">
                   React
                 </a>
-                ,{" "}
-                  <a href="https://nextjs.org/" target="blank">
-                    Next.js
-                  </a>{" "}
-                  etc) and working on{" "}
-                  <Link href="/blog/personal-projects">more projects.</Link>{" "}
+                ,{' '}
+                <a href="https://nextjs.org/" target="blank">
+                  Next.js
+                </a>{' '}
+                etc) and working on{' '}
+                <Link href="/blog/personal-projects">more projects.</Link>{' '}
               </p>
               <div>
-                <Link href="/" legacyBehavior>
-                  <a target="_blank" aria-label="Link to Smug Chicken game">
-                    <Image
-                      alt="tech"
-                      className="rounded-md"
-                      src="/mern_stack.png"
-                      width={800}
-                      height={300}
-                    />
-                  </a>
-                </Link>
+                <Image
+                  alt="tech"
+                  className="rounded-md"
+                  src="/mern_stack.png"
+                  width={800}
+                  height={300}
+                />
               </div>
             </div>
             <div className="w-[80px] sm:w-[200px] relative mb-8 sm:mb-0 ">

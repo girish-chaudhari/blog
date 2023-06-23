@@ -234,6 +234,10 @@ p {
   @apply text-black dark:text-white;
   font-size: 17px;
 }
+h1 {
+  font-size: 28px !important;
+  @apply text-black font-bold dark:text-white;
+}
 h2 {
   font-size: 24px !important;
   @apply text-black font-bold dark:text-white;
@@ -243,7 +247,15 @@ h3 {
   @apply text-black font-bold dark:text-white;
 }
 h4 {
-  font-size: 24px !important;
+  font-size: 18px !important;
+  @apply text-black font-bold dark:text-white;
+}
+h5 {
+  font-size: 16px !important;
+  @apply text-black font-bold dark:text-white;
+}
+h6 {
+  font-size: 14px !important;
   @apply text-black font-bold dark:text-white;
 }
 

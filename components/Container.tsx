@@ -7,9 +7,10 @@ import cn from 'classnames';
 
 import MobileMenu from './MobileMenu';
 import Footer from './Footer';
+import { Url } from 'url';
 
 
-function NavItem({ href, text, isGame }) {
+function NavItem({ href, text, isGame }: { href: Url | string, text: string, isGame: boolean}) {
   const router = useRouter();
   const isActive = router.asPath === href;
 
@@ -29,7 +30,7 @@ function NavItem({ href, text, isGame }) {
   );
 }
 
-export default function Container(props) {
+export default function Container(props: any) {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
