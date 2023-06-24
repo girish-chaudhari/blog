@@ -1,13 +1,59 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
-export default function Document() {
+export default function Document(props: any) {
   return (
     <Html lang="en">
-      <Head />
-      <body>
+      <Head>
+        <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
+        <link
+          href="/static/favicons/avatar.png"
+          rel="apple-touch-icon"
+          sizes="180x180"
+        />
+        <link
+          href="/static/favicons/avatar.png"
+          rel="icon"
+          sizes="32x32"
+          type="image/png"
+        />
+        <link
+          href="/static/favicons/avatar.png"
+          rel="icon"
+          sizes="16x16"
+          type="image/png"
+        />
+        <link
+          color="#4a9885"
+          href="/static/favicons/avatar.png"
+          rel="mask-icon"
+        />
+        <meta content="#ffffff" name="theme-color" />
+        <meta content="#ffffff" name="msapplication-TileColor" />
+        <meta
+          content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+          name="robots"
+        />
+        <Script
+          strategy="lazyOnload"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`}
+        />
+
+        <Script id="ga-script" strategy="lazyOnload">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+            });
+        `}
+        </Script>
+      </Head>
+      <body className="bg-white dark:bg-black text-white dark:text-black">
         <Main />
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }
