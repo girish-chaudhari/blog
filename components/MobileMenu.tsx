@@ -73,6 +73,14 @@ export default function MobileMenu() {
               <a className="flex w-auto pb-4">Blog</a>
             </Link>
           </li>
+          <li
+            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
+            style={{ transitionDelay: '250ms' }}
+          >
+            <Link href="/category" legacyBehavior>
+              <a className="flex w-auto pb-4">Category</a>
+            </Link>
+          </li>
         </ul>
       )}
     </>

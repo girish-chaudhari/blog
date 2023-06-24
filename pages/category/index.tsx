@@ -1,10 +1,14 @@
 import Container from '@/components/Container';
-import Link from 'next/link';
-import readingTime from 'reading-time';
+import { baseURL } from '@/lib/axiosConfig';
 import Image from 'next/image';
-import axios, { baseURL } from '@/lib/axiosConfig';
+import Link from 'next/link';
 
-export default function Code({ tags }) {
+interface Tag {
+tag : string;
+tagUrl: string;
+}
+
+export default function Code({ tags }: {tags: Tag[]}) {
   return (
     <Container
       title="Category – Girish Chaudhari"
@@ -30,7 +34,7 @@ export default function Code({ tags }) {
                       width={672}
                       height={250}
                       alt="image"
-                      className="mt-1 rounded-md !bg-white !border-solid !border-1 !border-gray-200 h-[75px] object-contain"
+                      className="mt-1 rounded-md !bg-white shadow-sm hover:shadow-md transition duration-500 !border-solid !border-1 !border-gray-200 h-[75px] object-contain"
                     ></Image>
                   </a>
                 </Link>
