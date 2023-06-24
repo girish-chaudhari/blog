@@ -1,4 +1,4 @@
-import { Post } from '@prisma/client';
+import { Post, Prisma } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 import { NextApiRequest, NextApiResponse } from 'next';
 
@@ -36,9 +36,22 @@ const postHandler = async (req: NextApiRequest, res: NextApiResponse) => {
       status: 'success',
       data: post
     });
-  } catch (error) {
-    console.log('err =>', error)
-    res.status(500).json({ msg: 'Something went wrong!', status: 'error' });
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError) {
+      if (e.code === 'P2002') {
+        console.log('err =>', e)
+        console.log(
+          'There is a unique constraint violation, a new user cannot be created with this email'
+        );
+        return res
+          .status(500)
+          .json({ msg: 'slug is allready exits', status: 'error' });
+      }
+    }
+    console.log('err =>', e);
+    return res
+      .status(500)
+      .json({ msg: 'Something went wrong!', status: 'error' });
   }
 };
 
