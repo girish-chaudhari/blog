@@ -5,27 +5,27 @@ export default function Document(props: any) {
   return (
     <Html lang="en">
       <Head>
-        <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
+        <link href="/static/favicons/favicon.png" rel="shortcut icon" />
         <link
-          href="/static/favicons/avatar.png"
+          href="/static/favicons/favicon.png"
           rel="apple-touch-icon"
           sizes="180x180"
         />
         <link
-          href="/static/favicons/avatar.png"
+          href="/static/favicons/favicon.png"
           rel="icon"
           sizes="32x32"
           type="image/png"
         />
         <link
-          href="/static/favicons/avatar.png"
+          href="/static/favicons/favicon.png"
           rel="icon"
           sizes="16x16"
           type="image/png"
         />
         <link
           color="#4a9885"
-          href="/static/favicons/avatar.png"
+          href="/static/favicons/favicon.png"
           rel="mask-icon"
         />
         <meta content="#ffffff" name="theme-color" />

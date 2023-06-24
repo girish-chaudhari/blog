@@ -5,7 +5,7 @@ module.exports = {
   swcMinify: true,
   reactStrictMode: true,
   images: {
-    domains: ['ryancarmody-blog.s3.amazonaws.com', 'img.shields.io','images.unsplash.com', "testrigor.com","res.cloudinary.com"]
+    domains: ['ryancarmody-blog.s3.amazonaws.com', 'img.shields.io','images.unsplash.com', "testrigor.com","res.cloudinary.com", "vercel.com"]
   },
   typescript:{
     ignoreBuildErrors: true,
