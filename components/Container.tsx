@@ -39,8 +39,8 @@ export default function Container(props: any) {
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
-    title: 'Girish Chaudhari - Web Developer and Computer Science Tutor',
-    description: `Full stack web developer and computer science tutor. `,
+    title: 'Girish Chaudhari - Web Developer and Software Developer',
+    description: `Full stack web developer and computer Software Developer. `,
     type: 'website',
     image:
       'https://blog-forum.vercel.app/home.png',
