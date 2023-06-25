@@ -9,9 +9,10 @@ interface Post {
   createdDate: string;
   tags: string[];
   slug: string;
+  heading: string;
 }
 
-export default function LatestPosts({ posts = [] }: {posts: Post[]}) {
+export default function LatestPosts({ posts = [] }: { posts: Post[] }) {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 grid-flow-dense">
       {posts.map((post, i) => {
@@ -40,14 +41,12 @@ export default function LatestPosts({ posts = [] }: {posts: Post[]}) {
               </a>
             </Link>
             <div className="p-4 pb-8">
-              <Link href={'/blog/' + 'next.js'} legacyBehavior>
+              <Link href={'/blog/' + post.slug} legacyBehavior>
                 <a>
                   <div className="text-sm text-green-700 dark:text-green-300">
                     {readingTime('3').text} - {post.createdDate}
                   </div>
-                  <h3 className="mb-3">
-                    {' Next.js is a popular framewrokf of react'}
-                  </h3>
+                  <h3 className="mb-3">{post?.heading}</h3>
                 </a>
               </Link>
               <div>
@@ -59,7 +58,7 @@ export default function LatestPosts({ posts = [] }: {posts: Post[]}) {
                       </a>
                     </Link>
                   );
-                })} 
+                })}
               </div>
             </div>
           </div>

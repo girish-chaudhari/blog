@@ -51,7 +51,7 @@ export default function Author({ readingTime, date }: AuthorProps) {
             </div>
           </a>
         </Link>
-        <Link href="https://twitter.com/girish-chaudhari" legacyBehavior>
+        <Link href="https://www.linkedin.com/in/girish-chaudhari-1595871aa" legacyBehavior>
           <a
             target="_blank"
             className="hidden sm:block"
@@ -70,7 +70,7 @@ export default function Author({ readingTime, date }: AuthorProps) {
             </div>
           </a>
         </Link>
-        <Link href="https://github.com/rjc23" legacyBehavior>
+        <Link href="https://github.com/girish-chaudhari" legacyBehavior>
           <a target="_blank" aria-label="Link to GitHub page">
             <div className="w-12 h-12 flex items-center justify-center">
               <svg

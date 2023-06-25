@@ -10,4 +10,5 @@ export type Post = {
   socialImage: string;
   readingTime: string;
   tag: any;
+  title: string;
 };

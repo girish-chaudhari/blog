@@ -50,7 +50,7 @@ export default function BlogLayout({
           <div
             className={`
             bg-gray-200 dark:bg-slate-700 dark:text-white dark:before:bg-slate-700 text-black mb-8 w-full p-3 rounded relative before:content-[''] before:w-3 before:bg-gray-200 before:h-3 before:rotate-45 before:absolute before:-bottom-1
-        flex gap-3 items-center transition delay-300 ease-in-out
+        flex gap-3 items-center transition-opacity delay-300 ease-in-out
         ${isMenuRendered ? 'opacity-100' : 'opacity-0'}`}
           >
             <div>
@@ -93,7 +93,7 @@ export default function BlogLayout({
           })}
         </div>
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
-          {post.heading}
+          {post.title}
         </h1>
         <Suspense fallback={null}>
           <div className="w-full prose dark:prose-dark max-w-none">
