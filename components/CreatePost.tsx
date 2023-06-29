@@ -1,8 +1,31 @@
-import React from 'react';
+import axios from '@/lib/axiosConfig';
+import { useForm } from 'react-hook-form';
 
 const CreatePost = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm();
+  const onSubmit = async (data: any) => {
+  data.authorId = "647acd3df2c57d976165715a"  
+  try {
+    let res = await axios.post('/post/create',{
+      ...data
+    })
+    if(res.data == 'success'){
+      alert('blog is created successfully!')
+    }else{
+      console.log('Something went wrong!')
+    }
+    
+  } catch (error) {
+    
+  }
+    console.log(data)
+  };
   return (
-    <div>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="max-w-2xl mx-auto">
         <div className="bg-white dark:bg-gray-800 rounded shadow-lg p-4 px-4 md:p-8 mb-6">
           <div className="mb-3">
@@ -11,17 +34,27 @@ const CreatePost = () => {
             </label>
             <input
               type="text"
-              name="title"
               id="title"
+              {...register('title', { required: true })}
               className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-black"
             />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="description" className="dark:text-white text-black">
+              Description
+            </label>
+            <textarea
+              id="description"
+              {...register('description', { required: true })}
+              className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-black min-h-[100px]"
+            ></textarea>
           </div>
           <div className="mb-3">
             <label htmlFor="category" className="dark:text-white text-black">
               Category
             </label>
             <select
-              name="category"
+              {...register('category', { required: true })}
               id="category"
               className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-black"
             >
@@ -35,7 +68,7 @@ const CreatePost = () => {
               Content
             </label>
             <textarea
-              name="content"
+              {...register('content', { required: true })}
               id="content"
               className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-black min-h-[100px]"
             ></textarea>
@@ -46,10 +79,9 @@ const CreatePost = () => {
             </label>
             <input
               type="text"
-              name="heading"
+              {...register('heading', { required: true })}
               id="heading"
               className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-black"
-              value=""
             />
           </div>
           <div className="mb-3">
@@ -58,10 +90,9 @@ const CreatePost = () => {
             </label>
             <input
               type="text"
-              name="imageUrl"
+              {...register('imageUrl', { required: true })}
               id="imageUrl"
               className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-black"
-              value=""
             />
           </div>
           <div className="mb-3">
@@ -70,10 +101,9 @@ const CreatePost = () => {
             </label>
             <input
               type="text"
-              name="slug"
+              {...register('slug', { required: true })}
               id="slug"
               className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-black"
-              value=""
             />
           </div>
           <div className="mb-3">
@@ -82,22 +112,9 @@ const CreatePost = () => {
             </label>
             <input
               type="text"
-              name="tags"
+              {...register('tags', { required: true })}
               id="tags"
               className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-black"
-              value=""
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="description" className="dark:text-white text-black">
-              Description
-            </label>
-            <input
-              type="text"
-              name="description"
-              id="description"
-              className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-black"
-              value=""
             />
           </div>
 
@@ -110,7 +127,7 @@ const CreatePost = () => {
           </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 

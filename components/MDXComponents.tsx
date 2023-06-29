@@ -17,6 +17,7 @@ const NextImage = (props: any) => {
 const CustomLink = (props: any) => {
   const href = props.href;
   const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'));
+  console.log('href', href)
 
   if (isInternalLink) {
     return (
