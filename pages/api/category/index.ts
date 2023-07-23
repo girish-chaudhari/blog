@@ -11,7 +11,10 @@ const getHandler = async (req: NextApiRequest, res: NextApiResponse) => {
         tags: {
           hasEvery: [tag]
         }
-      }
+      },
+      orderBy:[
+        {createdAt: 'desc'}
+      ]
     });
     console.log('postdata ', postData);
 

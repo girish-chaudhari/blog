@@ -50,7 +50,7 @@ export default function RelativePosts({
             ></PostImage>
             <div>
               <h4 className="truncate">{post?.title}</h4>
-              <p>{post?.description}.</p>
+              <p className='line-clamp-3'>{post?.description}.</p>
             </div>
           </div>
         ))}
