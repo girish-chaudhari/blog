@@ -30,7 +30,7 @@ const postHandler = async (req: NextApiRequest, res: NextApiResponse) => {
         description
       }
     });
-    console.log('postdata ', post);
+    console.log('postdata >>', post);
 
     return res.status(200).json({
       status: 'success',

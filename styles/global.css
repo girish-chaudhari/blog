@@ -7,6 +7,10 @@
   color: #fefefe;
 }
 
+.react-dropdown{
+  @apply  text-black
+}
+
 html {
   min-width: 360px;
   scroll-behavior: smooth;

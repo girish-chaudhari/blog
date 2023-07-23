@@ -7,7 +7,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrism from 'rehype-prism-plus';
 import rehypeImgSize from "rehype-img-size";
 
-export async function mdxToHtml(source) {
+export async function mdxToHtml(source : any) {
   const mdxSource = await serialize(source, {
     mdxOptions: {
       remarkPlugins: [remarkGfm],
@@ -23,7 +23,7 @@ export async function mdxToHtml(source) {
             }
           }
         ],
-        [rehypeImgSize, { dir: "static" }]
+        [rehypeImgSize as any, { dir: "static" }]
       ],
       format: 'mdx'
     }

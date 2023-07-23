@@ -21,20 +21,20 @@ export default function BlogLayout({
   post,
   relative
 }: PropsWithChildren<{ post: Post; relative: Relative[] }>) {
-  const [isnotification, setNotification] = useState(false);
-  const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
-    isnotification,
-    {
-      enterDelay: 20,
-      exitDelay: 1000
-    }
-  );
+  const [isnotification, setNotification] = useState(true);
+  // const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
+  //   isnotification,
+  //   {
+  //     enterDelay: 20,
+  //     exitDelay: 1000
+  //   }
+  // );
 
-  useEffect(() => {
-    setTimeout(() => {
-      setNotification(true);
-    }, 100);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setNotification(true);
+  //   }, 100);
+  // }, []);
 
   return (
     <Container
@@ -46,12 +46,12 @@ export default function BlogLayout({
       type="article"
     >
       <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
-        {isMenuMounted && (
+        {/* {isMenuMounted && ( */}
           <div
             className={`
             bg-gray-200 dark:bg-slate-700 dark:text-white dark:before:bg-slate-700 text-black mb-8 w-full p-3 rounded relative before:content-[''] before:w-3 before:bg-gray-200 before:h-3 before:rotate-45 before:absolute before:-bottom-1
         flex gap-3 items-center transition-opacity delay-300 ease-in-out
-        ${isMenuRendered ? 'opacity-100' : 'opacity-0'}`}
+        ${isnotification ? 'opacity-100' : 'opacity-0'}`}
           >
             <div>
               This website has limited features for the blog, In future we will
@@ -79,7 +79,7 @@ export default function BlogLayout({
               </svg>
             </button>
           </div>
-        )}
+        {/* )} */}
         <Author readingTime={post.readingTime} date={post.date} />
         <div className="mb-4">
           {post.tags.map((oneTag: string, i: number) => {
