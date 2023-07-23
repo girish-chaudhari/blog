@@ -35,7 +35,7 @@ const schema = yup.object().shape({
 });
 
 const CreatePost = () => {
-  const [tags, setTags] = useState<string[]>([])
+  const [tags, setTags] = useState<string[]>([]);
   const {
     register,
     control,
@@ -52,13 +52,13 @@ const CreatePost = () => {
       let res = await axios.get('/post/tags');
       let { status, data } = res.data;
       if (status == 'success') {
-        console.log('data', data)
-        let arr:string[] =[]
-        data.map((str: string, i : number) =>{
+        console.log('data', data);
+        let arr: string[] = [];
+        data.map((str: string, i: number) => {
           arr.push({ id: i, name: str } as any);
-          return 
-        })
-        setTags([...arr])
+          return;
+        });
+        setTags([...arr]);
       } else {
       }
     } catch (error) {}
@@ -72,20 +72,21 @@ const CreatePost = () => {
 
   const onSubmit = async (data: any) => {
     data.authorId = '647acd3df2c57d976165715a';
-    data.tags = data.tags.map(({name}: {name : string})=> name)
-    console.log('data', data)
+    data.tags = data.tags.map(({ name }: { name: string }) => name);
+    console.log('data', data);
     try {
       let res = await axios.post('/post/create', {
         ...data
       });
-      if (res.data == 'success') {
-        toast.success('blog is created successfully!')
-        reset()
+      let { status } = res.data;
+      if (status == 'success') {
+        toast.success('blog is created successfully!');
+        reset();
       } else {
-        toast.warning('Something went wrong!')
+        toast.warning('Something went wrong!');
       }
     } catch (error) {
-      toast.warning('Something went wrong!')
+      toast.warning('Something went wrong!');
     }
     console.log(data);
   };
