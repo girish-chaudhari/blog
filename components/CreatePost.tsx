@@ -5,6 +5,7 @@ import Select from 'react-select';
 import * as yup from 'yup';
 import Editor from './Editor';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const options = [
   { value: 'nextjs', label: 'Nextjs' },
@@ -39,6 +40,7 @@ const CreatePost = () => {
     register,
     control,
     handleSubmit,
+    reset,
     setValue,
     formState: { errors }
   } = useForm({
@@ -70,19 +72,20 @@ const CreatePost = () => {
 
   const onSubmit = async (data: any) => {
     data.authorId = '647acd3df2c57d976165715a';
-    data.tags = data.tags.name
+    data.tags = data.tags.map(({name}: {name : string})=> name)
     console.log('data', data)
     try {
       let res = await axios.post('/post/create', {
         ...data
       });
       if (res.data == 'success') {
-        alert('blog is created successfully!');
+        toast.success('blog is created successfully!')
+        reset()
       } else {
-        console.log('Something went wrong!');
+        toast.warning('Something went wrong!')
       }
     } catch (error) {
-      console.log('Something went wrong!');
+      toast.warning('Something went wrong!')
     }
     console.log(data);
   };
