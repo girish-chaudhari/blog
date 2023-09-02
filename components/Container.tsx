@@ -62,11 +62,17 @@ export default function Container(props: any) {
           rel="canonical"
           href={`https://blog-forum.vercel.app/${router.asPath}`}
         />
+        <link rel="icon" type="image/x-icon" href="/static/favicons/favicon.ico" />
+        <link rel="shortcut icon" href="/static/favicons/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/favicons/favicon.ico" />
+        <link rel="icon" type="image/x-icon" sizes="32x32" href="/static/favicons/favicon.ico"/>
+        <link rel="icon" type="image/x-icon" sizes="16x16" href="/static/favicons/favicon.ico"/>
+
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Girish Chaudhari" />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
-
+link:rel
         <meta property="og:image" content={meta.image} />
 
         <meta name="twitter:card" content="summary_large_image" />
