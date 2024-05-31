@@ -9,8 +9,15 @@ import MobileMenu from './MobileMenu';
 import Footer from './Footer';
 import { Url } from 'url';
 
-
-function NavItem({ href, text, isGame }: { href: Url | string, text: string, isGame: boolean}) {
+function NavItem({
+  href,
+  text,
+  isGame
+}: {
+  href: Url | string;
+  text: string;
+  isGame: boolean;
+}) {
   const router = useRouter();
   const isActive = router.asPath === href;
 
@@ -21,10 +28,18 @@ function NavItem({ href, text, isGame }: { href: Url | string, text: string, isG
           isActive
             ? 'font-semibold text-gray-800 dark:text-gray-200'
             : 'font-normal text-gray-600 dark:text-gray-400',
-          'hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all',
+          'hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all'
         )}
       >
-        <span className={cn(isGame ? 'font-extrabold text-transparent text-lg bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600' : 'capsize')}>{text}</span>
+        <span
+          className={cn(
+            isGame
+              ? 'font-extrabold text-transparent text-lg bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'
+              : 'capsize'
+          )}
+        >
+          {text}
+        </span>
       </a>
     </NextLink>
   );
@@ -42,8 +57,7 @@ export default function Container(props: any) {
     title: 'Girish Chaudhari - Web Developer and Software Developer',
     description: `Full stack web developer and computer Software Developer. `,
     type: 'website',
-    image:
-      'https://blog-forum.vercel.app/home.png',
+    image: 'https://blog-forum.vercel.app/home.png',
     tags: 'Next.js, blog, Girish Chaudhari',
     ...customMeta
   };
@@ -62,17 +76,34 @@ export default function Container(props: any) {
           rel="canonical"
           href={`https://blog-forum.vercel.app/${router.asPath}`}
         />
-        <link rel="icon" type="image/x-icon" href="/static/favicons/favicon.ico" />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="/static/favicons/favicon.ico"
+        />
         <link rel="shortcut icon" href="/static/favicons/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/static/favicons/favicon.ico" />
-        <link rel="icon" type="image/x-icon" sizes="32x32" href="/static/favicons/favicon.ico"/>
-        <link rel="icon" type="image/x-icon" sizes="16x16" href="/static/favicons/favicon.ico"/>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/static/favicons/favicon.ico"
+        />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          sizes="32x32"
+          href="/static/favicons/favicon.ico"
+        />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          sizes="16x16"
+          href="/static/favicons/favicon.ico"
+        />
 
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Girish Chaudhari" />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
-link:rel
         <meta property="og:image" content={meta.image} />
 
         <meta name="twitter:card" content="summary_large_image" />
